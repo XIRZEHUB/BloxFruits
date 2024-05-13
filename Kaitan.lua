@@ -1094,9 +1094,9 @@ LPH_JIT_MAX(function()
 								v.Head.CanCollide = false
 								v.Humanoid:ChangeState(11)
 								v.Humanoid:ChangeState(14)
-                                --if (PosMon.Position - v.HumanoidRootPart.Position).magnitude > 5 then
+                                if (v.HumanoidRootPart.Position - PosMon.Position).magnitude > 5 then
 								    v.HumanoidRootPart.CFrame = PosMon
-                               -- end
+                                end
 								sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
 							end
 						end
@@ -11117,7 +11117,7 @@ LPH_JIT_MAX(function()
 end)()
 
 
-Vertion(4)
+Vertion(5)
 
 
 return library, library_flags, library.subs
