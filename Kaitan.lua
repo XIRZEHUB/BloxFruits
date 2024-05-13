@@ -923,7 +923,7 @@ end)
 
 
 task.spawn(function()
-	while task.wait(.1) do 
+	while task.wait(.05) do 
 		pcall(function()
 			local ac = CombatFrameworkR.activeController
 			if ac and ac.equipped then
@@ -11116,7 +11116,7 @@ LPH_JIT_MAX(function()
 end)()
 
 
-Vertion(10)
+Vertion(11)
 
 
 return library, library_flags, library.subs
