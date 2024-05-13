@@ -10666,13 +10666,14 @@ LPH_JIT_MAX(function()
 							end
 						end
 					elseif MyLevel >= 15 and MyLevel <= 40 then
+						ido:Set("Doing : Farm Fast Levels : God's Guard")
                         if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-4607.82275, 872.54248, -1667.55688)).Magnitude <= 1500 then
                             local CFrameMon = CFrame.new(-4711.2666015625, 849.9006958007812, -1938.89990234375)
                             if game:GetService("Workspace").Enemies:FindFirstChild("God's Guard") then
                                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                     if getgenv().Setting['Auto Farm'] and v.Name == "God's Guard" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                                         Name = "God's Guard"
-										ido:Set("Doing : Farm Fast Levels")
+										
                                         repeat task.wait()
                                             if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude > 150 then
                                                 FarmtoTarget = TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,1),"Bypass")
@@ -10713,6 +10714,7 @@ LPH_JIT_MAX(function()
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275390625, 872.5422973632812, -1667.556884765625))	
                         end
                     elseif MyLevel >= 40 and MyLevel <= 70 then
+						ido:Set("Doing : Farm Fast Levels : Shanda")
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                         if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047)).Magnitude <= 3500 then
                             local CFrameMon = CFrame.new(-7678.2168, 5566.77734, -492.867432, -0.998147547, -4.29575664e-08, -0.0608393028, -4.53528806e-08, 1, 3.79902225e-08, 0.0608393028, 4.06790868e-08, -0.998147547)
@@ -10720,7 +10722,7 @@ LPH_JIT_MAX(function()
                                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                     if getgenv().Setting['Auto Farm'] and v.Name == "Shanda" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then			
                                         Name = "Shanda"
-										ido:Set("Doing : Farm Fast Levels")
+										
                                         repeat task.wait()
                                             if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude > 150 then
                                                 FarmtoTarget = TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,1),"Bypass")
@@ -10762,6 +10764,7 @@ LPH_JIT_MAX(function()
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))			
                         end
                     elseif MyLevel >= 70 and MyLevel <= 300 then
+						ido:Set("Doing : Farm Fast Levels : Shanda")
                         if GetQuest.Visible == false then
                             if not tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")):find("We heard some") then 
                                 if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047)).Magnitude <= 3500 then
@@ -10771,7 +10774,7 @@ LPH_JIT_MAX(function()
                                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                             if getgenv().Setting['Auto Farm'] and v.Name == "Shanda" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                                                 Name = "Shanda"
-												ido:Set("Doing : Farm Fast Levels")
+												
                                                 repeat task.wait()
                                                     if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude > 150 then
                                                         FarmtoTarget = TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,1),"Bypass")
