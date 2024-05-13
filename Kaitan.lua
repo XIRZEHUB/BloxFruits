@@ -65,7 +65,7 @@ AntiKick()
 function Vertion(Text)
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Icon = "0";
-        Title = "Observation", 
+        Title = "version", 
         Text = ("Newversion : "..tonumber(Text))
     })
 end
@@ -10630,7 +10630,7 @@ KaiTun1:AddButton({
     Callback = function()
 		local ts = game:GetService("TeleportService")
         local p = game:GetService("Players").LocalPlayer
-        ts:Teleport(game.PlaceId)
+        ts:Teleport(game.PlaceId,p)
     end
 })
 
@@ -10702,7 +10702,6 @@ LPH_JIT_MAX(function()
                             else
                                 StartBring = false
                                 FastAttack = false
-                                Modstween = TP(CFrameMon,"Bypass")
                                 if World1 and (CFrameMon.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 1500 then
                                     if Modstween then Modstween:Cancel() end wait(.5)
                                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275390625, 872.5422973632812, -1667.556884765625))
@@ -10763,7 +10762,13 @@ LPH_JIT_MAX(function()
                                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.61768, 5545.4917, -380.291199, 1, 1.18593251e-08, 1.20024249e-12, -1.18593251e-08, 1, 5.91565197e-09, -1.20017234e-12, -5.91565197e-09, 1))
                                 elseif (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
                                     if Modstween then Modstween:Cancel() end
-                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+									for i,v in pairs(workspace.EnemySpawns:GetChildren()) do
+										if v.Name == NameMon then 
+											repeat task.wait(.25)
+												Modstween = TP(v.CFrame * CFrame.new(0, 50, 5),"Bypass")
+											until game:GetService("Workspace").Enemies:FindFirstChild(Name) or (v.CFrame * CFrame.new(0, 50, 5).Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude < 5
+										end
+									end
                                 end 
                             end
                         else
@@ -10813,7 +10818,13 @@ LPH_JIT_MAX(function()
                                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.61768, 5545.4917, -380.291199, 1, 1.18593251e-08, 1.20024249e-12, -1.18593251e-08, 1, 5.91565197e-09, -1.20017234e-12, -5.91565197e-09, 1))
                                         elseif (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
                                             if Modstween then Modstween:Cancel() end
-                                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+                                            for i,v in pairs(workspace.EnemySpawns:GetChildren()) do
+												if v.Name == NameMon then 
+													repeat task.wait(.25)
+														Modstween = TP(v.CFrame * CFrame.new(0, 50, 5),"Bypass")
+													until game:GetService("Workspace").Enemies:FindFirstChild(Name) or (v.CFrame * CFrame.new(0, 50, 5).Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude < 5
+												end
+											end
                                         end 
                                     end
                                 else
@@ -10920,9 +10931,9 @@ LPH_JIT_MAX(function()
 										if RemoteProQuest["KilledMob"] then
 											if RemoteProQuest["UsedRelic"] then
 												if not RemoteProQuest["KilledShanks"] then
-													if game:GetService("Workspace").Enemies:FindFirstChild("Saber Expert ") then
+													if game:GetService("Workspace").Enemies:FindFirstChild("Saber Expert") then
 														for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-															if v.Name == "Saber Expert " then
+															if v.Name == "Saber Expert" then
 																repeat task.wait()
 																	FastAttack = true
 																	EquipTool("Melee")
@@ -10962,9 +10973,9 @@ LPH_JIT_MAX(function()
 													end
 												end
 											end
-										elseif game:GetService("Workspace").Enemies:FindFirstChild("Mob Leader [Lv. 120] [Boss]") then
+										elseif game:GetService("Workspace").Enemies:FindFirstChild("Mob Leader") then
 											for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-												if v.Name == "Mob Leader [Lv. 120] [Boss]" then
+												if v.Name == "Mob Leader" then
 													repeat task.wait()
 														FastAttack = true
 														EquipTool("Melee")
@@ -11117,7 +11128,7 @@ LPH_JIT_MAX(function()
 end)()
 
 
-Vertion(6)
+Vertion(7)
 
 
 return library, library_flags, library.subs
