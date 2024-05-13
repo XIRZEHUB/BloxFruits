@@ -10665,55 +10665,7 @@ LPH_JIT_MAX(function()
 								end
 							end
 						end
-					elseif MyLevel >= 15 and MyLevel <= 40 then
-						ido:Set("Doing : Farm Fast Levels : God's Guard")
-                        if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-4607.82275, 872.54248, -1667.55688)).Magnitude <= 1500 then
-                            local CFrameMon = CFrame.new(-4711.2666015625, 849.9006958007812, -1938.89990234375)
-                            if game:GetService("Workspace").Enemies:FindFirstChild("God's Guard") then
-                                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                                    if getgenv().Setting['Auto Farm'] and v.Name == "God's Guard" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                                        Name = "God's Guard"
-										
-                                        repeat task.wait()
-                                            if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude > 150 then
-                                                FarmtoTarget = TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,1),"Bypass")
-                                            elseif v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
-                                                if FarmtoTarget then FarmtoTarget:Stop() end
-                                                v.Humanoid.JumpPower = 0
-                                                v.Humanoid.WalkSpeed = 0
-                                                v.HumanoidRootPart.CanCollide = false
-                                                v.Humanoid:ChangeState(11)
-                                                v.Humanoid:ChangeState(14)
-                                                PosMon = v.HumanoidRootPart.CFrame
-                                                StartBring = true
-                                                FastAttack = true
-                                                EquipTool("Melee")
-                                                if game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Character:FindFirstChild("Black Leg").Level.Value >= 150 then
-                                                    game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
-                                                    game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
-                                                end
-                                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 50, 1)
-                                            end
-                                        until v.Humanoid.Health <= 0 or not getgenv().Setting['Auto Farm'] or MyLevel >= 40
-                                        StartBring = false
-                                        FastAttack = false
-                                    end
-                                end
-                            else
-                                StartBring = false
-                                FastAttack = false
-                                if World1 and (CFrameMon.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 1500 then
-                                    if Modstween then Modstween:Cancel() end wait(.5)
-                                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275390625, 872.5422973632812, -1667.556884765625))
-                                elseif (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 300 then
-                                    if Modstween then Modstween:Cancel() end
-                                    TP(CFrameMon,"Bypass")
-                                end 
-                            end
-                        else
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275390625, 872.5422973632812, -1667.556884765625))	
-                        end
-                    elseif MyLevel >= 40 and MyLevel <= 70 then
+                    elseif MyLevel >= 15 and MyLevel <= 70 then
 						ido:Set("Doing : Farm Fast Levels : Shanda")
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                         if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047)).Magnitude <= 3500 then
@@ -10722,11 +10674,9 @@ LPH_JIT_MAX(function()
                                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                     if getgenv().Setting['Auto Farm'] and v.Name == "Shanda" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then			
                                         Name = "Shanda"
-										
                                         repeat task.wait()
-                                            if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude > 150 then
-                                                FarmtoTarget = TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,1),"Bypass")
-                                            elseif v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
+                                            FarmtoTarget = TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,1),"Bypass")
+                                            if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
                                                 if FarmtoTarget then FarmtoTarget:Stop() end
                                                 v.Humanoid.JumpPower = 0
                                                 v.Humanoid.WalkSpeed = 0
@@ -10774,11 +10724,9 @@ LPH_JIT_MAX(function()
                                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                             if getgenv().Setting['Auto Farm'] and v.Name == "Shanda" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                                                 Name = "Shanda"
-												
                                                 repeat task.wait()
-                                                    if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude > 150 then
-                                                        FarmtoTarget = TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,1),"Bypass")
-                                                    elseif v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
+                                                    FarmtoTarget = TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,1),"Bypass")
+                                                    if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
                                                         if FarmtoTarget then FarmtoTarget:Stop() end
                                                         v.Humanoid.JumpPower = 0
                                                         v.Humanoid.WalkSpeed = 0
