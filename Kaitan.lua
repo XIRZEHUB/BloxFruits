@@ -60,7 +60,15 @@ function AntiKick()
 end
 AntiKick()
 
+-- Vertiion
 
+function Vertion(Text)
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Icon = "rbxassetid://13984057027";
+        Title = "Observation", 
+        Text = ("Newversion"..tonumber(Text))
+    })
+end
 
 -- Auto Rejoin
 
@@ -11110,7 +11118,7 @@ LPH_JIT_MAX(function()
 end)()
 
 
-
+Vertion(0)
 
 
 return library, library_flags, library.subs
