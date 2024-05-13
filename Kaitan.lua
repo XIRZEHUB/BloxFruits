@@ -10701,13 +10701,14 @@ LPH_JIT_MAX(function()
                             else
                                 StartBring = false
                                 FastAttack = false
+								Modstween = TP(CFrameMon,"Bypass")
                                 if World1 and (CFrameMon.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude >1500 then
                                     if Modstween then Modstween:Cancel() end wait(.5)
                                     --game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
                                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.61768, 5545.4917, -380.291199, 1, 1.18593251e-08, 1.20024249e-12, -1.18593251e-08, 1, 5.91565197e-09, -1.20017234e-12, -5.91565197e-09, 1))
                                 elseif (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
                                     if Modstween then Modstween:Cancel() end
-									TP(CFrameMon,"Bypass")
+									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
                                 end 
                             end
                         else
@@ -10751,12 +10752,13 @@ LPH_JIT_MAX(function()
                                     else
                                         StartBring = false
                                         FastAttack = false
+										Modstween = TP(CFrameMon,"Bypass")
                                         if World1 and (CFrameMon.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude >1500 then
                                             if Modstween then Modstween:Cancel() end wait(.5)
                                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.61768, 5545.4917, -380.291199, 1, 1.18593251e-08, 1.20024249e-12, -1.18593251e-08, 1, 5.91565197e-09, -1.20017234e-12, -5.91565197e-09, 1))
                                         elseif (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
                                             if Modstween then Modstween:Cancel() end
-                                            TP(CFrameMon,"Bypass")
+                                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
                                         end 
                                     end
                                 else
@@ -10787,9 +10789,14 @@ LPH_JIT_MAX(function()
 															elseif v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
 																if FarmTP then FarmTP:Stop() end
 																if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.PvpDisabled.Visible == true then
-																	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 1000, 0)
 																	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EnablePvp")
 																end
+																if game:GetService("Players").LocalPlayer.PlayerGui.Main.SafeZone.Visible == true and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 50 then
+                                                                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                                                                end
+                                                                if game:GetService("Players").LocalPlayer.PlayerGui.Main.InCombat.Visible == true then
+                                                                    v.Head:Destroy()
+                                                                end
 																repeat wait()
 																	EquipTool("Melee")
 																	FastAttack = true
@@ -10816,7 +10823,6 @@ LPH_JIT_MAX(function()
                                                     elseif v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
                                                         if FarmTP then FarmTP:Stop() end
                                                         if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.PvpDisabled.Visible == true then
-                                                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 1000, 0)
                                                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EnablePvp")
                                                         end
                                                         repeat wait()
