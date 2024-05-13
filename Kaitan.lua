@@ -10707,7 +10707,7 @@ LPH_JIT_MAX(function()
                                 elseif (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 300 then
                                     if Modstween then Modstween:Cancel() end
                                     for i,v in pairs(workspace.EnemySpawns:GetChildren()) do
-                                        if string.find(v.Name,Name) then 
+                                        if v.Name == Name then 
                                             repeat task.wait(.25)
                                                 Modstween = TP(v.CFrame * CFrame.new(0, 50, 5),"Bypass")
                                             until game:GetService("Workspace").Enemies:FindFirstChild(Name) or (v.CFrame * CFrame.new(0, 50, 5).Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude < 5
@@ -10762,7 +10762,7 @@ LPH_JIT_MAX(function()
                                 elseif (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
                                     if Modstween then Modstween:Cancel() end
 									for i,v in pairs(workspace.EnemySpawns:GetChildren()) do
-										if v.Name == NameMon then 
+										if v.Name == Name then 
 											repeat task.wait(.25)
 												Modstween = TP(v.CFrame * CFrame.new(0, 50, 5),"Bypass")
 											until game:GetService("Workspace").Enemies:FindFirstChild(Name) or (v.CFrame * CFrame.new(0, 50, 5).Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude < 5
@@ -10818,7 +10818,7 @@ LPH_JIT_MAX(function()
                                         elseif (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
                                             if Modstween then Modstween:Cancel() end
                                             for i,v in pairs(workspace.EnemySpawns:GetChildren()) do
-												if v.Name == NameMon then 
+												if v.Name == Name then 
 													repeat task.wait(.25)
 														Modstween = TP(v.CFrame * CFrame.new(0, 50, 5),"Bypass")
 													until game:GetService("Workspace").Enemies:FindFirstChild(Name) or (v.CFrame * CFrame.new(0, 50, 5).Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude < 5
@@ -11453,8 +11453,7 @@ spawn(function()
 end)
 
 
-
-Vertion(12)
+Vertion(13)
 
 
 return library, library_flags, library.subs
