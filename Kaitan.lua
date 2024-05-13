@@ -10821,30 +10821,30 @@ LPH_JIT_MAX(function()
                                                         if FarmTP then FarmTP:Stop() end
                                                         if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.PvpDisabled.Visible == true then
                                                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EnablePvp")
-                                                        end
-														if game:GetService("Players").LocalPlayer.PlayerGui.Main.SafeZone.Visible == true and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 50 then
+														elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.SafeZone.Visible == true and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 50 then
 															game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+														else
+															repeat wait()
+																EquipTool("Melee")
+																FastAttack = true
+																game:GetService("VirtualUser"):CaptureController()
+																game:GetService("VirtualUser"):ClickButton1(Vector2.new(1300,760), game:GetService("Workspace").Camera.CFrame)
+																if AttackRandom == 1 then
+																	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,25,0)
+																	AutoSkill = false
+																elseif AttackRandom == 2 then
+																	AutoSkill = true
+																	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,0)
+																elseif AttackRandom == 3 then
+																	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,25,0)
+																	AutoSkill = false
+																elseif AttackRandom == 4 then
+																	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,0)
+																	AutoSkill = true
+																end
+															until not getgenv().Setting['Auto Farm'] or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,v.Name) or v.Humanoid.Health <= 0 or not v.Parent or GetQuest.Visible == false or game:GetService("Players")["LocalPlayer"].PlayerGui.Main.PvpDisabled.Visible == true
 														end
-                                                        repeat wait()
-															EquipTool("Melee")
-                                                            FastAttack = true
-															game:GetService("VirtualUser"):CaptureController()
-															game:GetService("VirtualUser"):ClickButton1(Vector2.new(1300,760), game:GetService("Workspace").Camera.CFrame)
-                                                            if AttackRandom == 1 then
-																game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,25,0)
-																AutoSkill = false
-															elseif AttackRandom == 2 then
-																AutoSkill = true
-																game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,0)
-															elseif AttackRandom == 3 then
-																game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,25,0)
-																AutoSkill = false
-															elseif AttackRandom == 4 then
-																game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,0)
-																AutoSkill = true
-															end
-                                                        until not getgenv().Setting['Auto Farm'] or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,v.Name) or v.Humanoid.Health <= 0 or not v.Parent or GetQuest.Visible == false or game:GetService("Players")["LocalPlayer"].PlayerGui.Main.PvpDisabled.Visible == true
-                                                    end
+													end
                                                 until not getgenv().Setting['Auto Farm'] or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,v.Name) or v.Humanoid.Health <= 0 or not v.Parent or GetQuest.Visible == false
                                                 AutoSkill = false
                                                 FastAttack = false
@@ -11392,7 +11392,7 @@ spawn(function()
 end)
 
 
-Vertion(20)
+Vertion(21)
 
 
 return library, library_flags, library.subs
