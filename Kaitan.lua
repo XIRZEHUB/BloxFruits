@@ -10641,7 +10641,7 @@ local CheckRaid = false
 
 LPH_JIT_MAX(function()
 	task.spawn(function()
-		while wait() do
+		while task.wait() do
 			pcall(function()
 				if getgenv().Setting['Auto Farm'] then
                     GetQuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title
@@ -10666,7 +10666,7 @@ LPH_JIT_MAX(function()
 							end
 						end
 					elseif MyLevel >= 15 and MyLevel <= 40 then
-                        if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-4607.82275, 872.54248, -1667.55688)).Magnitude <= 3500 then
+                        if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(-4607.82275, 872.54248, -1667.55688)).Magnitude <= 1500 then
                             local CFrameMon = CFrame.new(-4711.2666015625, 849.9006958007812, -1938.89990234375)
                             if game:GetService("Workspace").Enemies:FindFirstChild("God's Guard") then
                                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
@@ -11118,7 +11118,7 @@ end)()
 spawn(function()
 	while wait() do
 		pcall(function()
-			
+
 			if getgenv().Setting['Auto Farm'] then
 				BuyGodhuman = tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true))
 				if BuyGodhuman then
@@ -11453,7 +11453,7 @@ spawn(function()
 end)
 
 
-Vertion(13)
+Vertion(14)
 
 
 return library, library_flags, library.subs
