@@ -10825,6 +10825,12 @@ LPH_JIT_MAX(function()
                                                         if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.PvpDisabled.Visible == true then
                                                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EnablePvp")
                                                         end
+														if game:GetService("Players").LocalPlayer.PlayerGui.Main.SafeZone.Visible == true and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 50 then
+															game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+														end
+														if game:GetService("Players").LocalPlayer.PlayerGui.Main.InCombat.Visible == true then
+															v.Head:Destroy()
+														end
                                                         repeat wait()
 															EquipTool("Melee")
                                                             FastAttack = true
