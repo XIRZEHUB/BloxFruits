@@ -261,7 +261,7 @@ function CheckPlTokill(Name)
     for i,v in pairs(game:GetService("Workspace").Characters:GetChildren()) do
         if v.Name == Name then
             if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.PvpDisabled.Visible == false then
-                if game:GetService("Players").LocalPlayer.PlayerGui.Main.SafeZone.Visible == true and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 50 then
+                if game:GetService("Players").LocalPlayer.PlayerGui.Main.SafeZone.Visible == false and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 50 then
                     return "PK"
                 else
                     return "NQ"
