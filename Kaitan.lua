@@ -10830,38 +10830,34 @@ LPH_JIT_MAX(function()
 															end
 														end
                                                     else
-                                                        FarmTP = TP(v.HumanoidRootPart.CFrame * CFrame.new(0,0,0),"Bypass")
-                                                    	if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
-                                                        	if FarmTP then FarmTP:Stop() end
-															FarmTP = TP(v.HumanoidRootPart.CFrame * CFrame.new(0,0,0),"Bypass")
-															if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
-																if FarmTP then FarmTP:Stop() end
-																if CheckPlTokill(v.Name) == "PK" then
-																	repeat wait()
-																		EquipTool("Melee")
-																		FastAttack = true
-																		game:GetService("VirtualUser"):CaptureController()
-																		game:GetService("VirtualUser"):ClickButton1(Vector2.new(1300,760), game:GetService("Workspace").Camera.CFrame)
-																		if AttackRandom == 1 then
-																			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,25,0)
-																			AutoSkill = false
-																		elseif AttackRandom == 2 then
-																			AutoSkill = true
-																			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,0)
-																		elseif AttackRandom == 3 then
-																			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,25,0)
-																			AutoSkill = false
-																		elseif AttackRandom == 4 then
-																			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,0)
-																			AutoSkill = true
-																		end
-																	until not getgenv().Setting['Auto Farm'] or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,v.Name) or v.Humanoid.Health <= 0 or not v.Parent or GetQuest.Visible == false or game:GetService("Players")["LocalPlayer"].PlayerGui.Main.PvpDisabled.Visible == true
-																elseif CheckPlTokill(v.Name) == "NQ" then
-																	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-																elseif CheckPlTokill(v.Name) == "PD" then
-																	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 1000, 0)
-                                                                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EnablePvp")
-																end
+														FarmTP = TP(v.HumanoidRootPart.CFrame * CFrame.new(0,0,0),"Bypass")
+														if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
+															if FarmTP then FarmTP:Stop() end
+															if CheckPlTokill(v.Name) == "PK" then
+																repeat wait()
+																	EquipTool("Melee")
+																	FastAttack = true
+																	game:GetService("VirtualUser"):CaptureController()
+																	game:GetService("VirtualUser"):ClickButton1(Vector2.new(1300,760), game:GetService("Workspace").Camera.CFrame)
+																	if AttackRandom == 1 then
+																		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,25,0)
+																		AutoSkill = false
+																	elseif AttackRandom == 2 then
+																		AutoSkill = true
+																		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,0)
+																	elseif AttackRandom == 3 then
+																		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,25,0)
+																		AutoSkill = false
+																	elseif AttackRandom == 4 then
+																		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,0)
+																		AutoSkill = true
+																	end
+																until not getgenv().Setting['Auto Farm'] or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,v.Name) or v.Humanoid.Health <= 0 or not v.Parent or GetQuest.Visible == false or game:GetService("Players")["LocalPlayer"].PlayerGui.Main.PvpDisabled.Visible == true
+															elseif CheckPlTokill(v.Name) == "NQ" then
+																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+															elseif CheckPlTokill(v.Name) == "PD" then
+																game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 1000, 0)
+																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EnablePvp")
 															end
 														end
 													end
