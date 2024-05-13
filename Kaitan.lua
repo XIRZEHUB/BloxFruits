@@ -10794,9 +10794,6 @@ LPH_JIT_MAX(function()
 																if game:GetService("Players").LocalPlayer.PlayerGui.Main.SafeZone.Visible == true and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 50 then
                                                                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                                                 end
-                                                                if game:GetService("Players").LocalPlayer.PlayerGui.Main.InCombat.Visible == true then
-                                                                    v.Head:Destroy()
-                                                                end
 																repeat wait()
 																	EquipTool("Melee")
 																	FastAttack = true
@@ -10827,9 +10824,6 @@ LPH_JIT_MAX(function()
                                                         end
 														if game:GetService("Players").LocalPlayer.PlayerGui.Main.SafeZone.Visible == true and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 50 then
 															game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-														end
-														if game:GetService("Players").LocalPlayer.PlayerGui.Main.InCombat.Visible == true then
-															v.Head:Destroy()
 														end
                                                         repeat wait()
 															EquipTool("Melee")
@@ -11398,7 +11392,7 @@ spawn(function()
 end)
 
 
-Vertion(19)
+Vertion(20)
 
 
 return library, library_flags, library.subs
