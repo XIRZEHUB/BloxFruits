@@ -573,10 +573,9 @@ function CheckFruitForBypass()
 	for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 		if string.find(v.Name, "Fruit") then
 			return true
-		else
-			return false
 		end
 	end
+	return false
 end
 
 function TP(...)
@@ -10949,17 +10948,6 @@ LPH_JIT_MAX(function()
 															end
 														end
 													else
-														-- if Name == "Fishman Commando [Lv. 400]" or Name == "Fishman Warrior [Lv. 375]" and  GetDistance(CFrame.new(3864.8515625, 6.6796875, -1926.7841796875)) > 10000 then
-														-- 	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(3864.8515625, 6.6796875, -1926.7841796875))
-														-- 	if GetDistance(CFrame.new(3864.8515625, 6.6796875, -1926.7841796875)) <= 100 then
-														-- 		TP(game:GetService("ReplicatedStorage")["Saber Expert "].HumanoidRootPart.CFrame,"Bypass")
-														-- 	end
-														-- else
-														-- 	TP(game:GetService("ReplicatedStorage")["Saber Expert "].HumanoidRootPart.CFrame,"Bypass")
-														-- 	if GetDistance(CFrame.new(-1458.89502, 29.8870335, -50.633564)) <= 100 then
-														-- 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-														-- 	end
-														-- end
 														TP(game:GetService("ReplicatedStorage")["Saber Expert"].HumanoidRootPart.CFrame,"Bypass")
 													end
 												end
@@ -11128,7 +11116,7 @@ LPH_JIT_MAX(function()
 end)()
 
 
-Vertion(8)
+Vertion(9)
 
 
 return library, library_flags, library.subs
