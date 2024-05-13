@@ -10706,13 +10706,7 @@ LPH_JIT_MAX(function()
                                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275390625, 872.5422973632812, -1667.556884765625))
                                 elseif (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 300 then
                                     if Modstween then Modstween:Cancel() end
-                                    for i,v in pairs(workspace.EnemySpawns:GetChildren()) do
-                                        if v.Name == Name then 
-                                            repeat task.wait(.25)
-                                                Modstween = TP(v.CFrame * CFrame.new(0, 50, 5),"Bypass")
-                                            until game:GetService("Workspace").Enemies:FindFirstChild(Name) or (v.CFrame * CFrame.new(0, 50, 5).Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude < 5
-                                        end
-                                    end
+                                    TP(CFrameMon,"Bypass")
                                 end 
                             end
                         else
@@ -10761,13 +10755,7 @@ LPH_JIT_MAX(function()
                                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.61768, 5545.4917, -380.291199, 1, 1.18593251e-08, 1.20024249e-12, -1.18593251e-08, 1, 5.91565197e-09, -1.20017234e-12, -5.91565197e-09, 1))
                                 elseif (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
                                     if Modstween then Modstween:Cancel() end
-									for i,v in pairs(workspace.EnemySpawns:GetChildren()) do
-										if v.Name == Name then 
-											repeat task.wait(.25)
-												Modstween = TP(v.CFrame * CFrame.new(0, 50, 5),"Bypass")
-											until game:GetService("Workspace").Enemies:FindFirstChild(Name) or (v.CFrame * CFrame.new(0, 50, 5).Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude < 5
-										end
-									end
+									TP(CFrameMon,"Bypass")
                                 end 
                             end
                         else
@@ -10817,13 +10805,7 @@ LPH_JIT_MAX(function()
                                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.61768, 5545.4917, -380.291199, 1, 1.18593251e-08, 1.20024249e-12, -1.18593251e-08, 1, 5.91565197e-09, -1.20017234e-12, -5.91565197e-09, 1))
                                         elseif (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
                                             if Modstween then Modstween:Cancel() end
-                                            for i,v in pairs(workspace.EnemySpawns:GetChildren()) do
-												if v.Name == Name then 
-													repeat task.wait(.25)
-														Modstween = TP(v.CFrame * CFrame.new(0, 50, 5),"Bypass")
-													until game:GetService("Workspace").Enemies:FindFirstChild(Name) or (v.CFrame * CFrame.new(0, 50, 5).Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude < 5
-												end
-											end
+                                            TP(CFrameMon,"Bypass")
                                         end 
                                     end
                                 else
@@ -11453,7 +11435,7 @@ spawn(function()
 end)
 
 
-Vertion(14)
+Vertion(15)
 
 
 return library, library_flags, library.subs
