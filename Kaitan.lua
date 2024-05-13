@@ -10960,7 +10960,7 @@ LPH_JIT_MAX(function()
 														-- 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 														-- 	end
 														-- end
-														TP(game:GetService("ReplicatedStorage")["Saber Expert "].HumanoidRootPart.CFrame,"Bypass")
+														TP(game:GetService("ReplicatedStorage")["Saber Expert"].HumanoidRootPart.CFrame,"Bypass")
 													end
 												end
 											else
@@ -11128,7 +11128,7 @@ LPH_JIT_MAX(function()
 end)()
 
 
-Vertion(7)
+Vertion(8)
 
 
 return library, library_flags, library.subs
