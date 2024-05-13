@@ -11117,7 +11117,7 @@ LPH_JIT_MAX(function()
 end)()
 
 
-Vertion(5)
+Vertion(6)
 
 
 return library, library_flags, library.subs
