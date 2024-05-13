@@ -1088,16 +1088,13 @@ LPH_JIT_MAX(function()
 					for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 						if v.Name == Name and not string.find(v.Name,"Boss") then
 							if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 275 then
-								sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
 								v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 								v.HumanoidRootPart.Transparency = 1
 								v.HumanoidRootPart.CanCollide = false
 								v.Head.CanCollide = false
 								v.Humanoid:ChangeState(11)
 								v.Humanoid:ChangeState(14)
-								if not (v.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < 5 then
-									v.HumanoidRootPart.CFrame = PosMon
-								end
+								v.HumanoidRootPart.CFrame = PosMon
 								sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
 							end
 						end
