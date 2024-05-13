@@ -11115,6 +11115,344 @@ LPH_JIT_MAX(function()
 	end)	
 end)()
 
+spawn(function()
+	while wait() do
+		pcall(function()
+			
+			if getgenv().Setting['Auto Farm'] then
+				BuyGodhuman = tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true))
+				if BuyGodhuman then
+					if BuyGodhuman == 1 then
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+						getgenv().Setting['Auto Farm'] = false
+					end
+				end
+				if not HasTalon then
+					BuyDragonTalon = tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true))
+
+					if BuyDragonTalon then
+						if BuyDragonTalon == 1 then
+							HasTalon = true
+						end
+					end
+				end
+				if not HasSuperhuman then
+					BuySuperhuman = tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true))
+
+					if BuySuperhuman then
+						if BuySuperhuman == 1 then
+							HasSuperhuman = true
+						end
+					end
+				end
+				if not HasKarate then
+					BuySharkmanKarate = tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true))
+
+					if BuySharkmanKarate then
+						if BuySharkmanKarate == 1 then
+							HasKarate = true
+						end
+					end
+				end
+				if not HasDeathStep then
+					BuyDeathStep = tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer( "BuyDeathStep",true))
+
+					if BuyDeathStep then
+						if BuyDeathStep == 1 then
+							HasDeathStep = true
+						end
+					end
+				end
+				if not HasElectricClaw then
+					BuyElectricClaw = tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true))
+					if BuyElectricClaw then
+						if BuyElectricClaw == 1 then
+							HasElectricClaw = true
+						end
+					end
+				end
+
+				if not HasSuperhuman then
+					if game.Players.LocalPlayer:FindFirstChild("WeaponAssetCache") then
+						if not game.Players.LocalPlayer.Backpack:FindFirstChild("Combat") and not game.Players.LocalPlayer.Character:FindFirstChild("Combat") then
+							if not game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and not game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") then
+								if not game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and not game.Players.LocalPlayer.Character:FindFirstChild("Electro") then
+									if not game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate") and not game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate") then
+										if not game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and not game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") then
+											if not game.Players.LocalPlayer.Backpack:FindFirstChild("Superhuman") and not game.Players.LocalPlayer.Character:FindFirstChild("Superhuman") then
+												local args = {
+													[1] = "BuyElectro"
+												}
+												game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+											end
+										end
+									end
+								end
+							end
+						end
+
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Combat") or game.Players.LocalPlayer.Character:FindFirstChild("Combat") then
+							local args = {
+								[1] = "BuyElectro"
+							}
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+						end
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value >= 300 then
+							local args = {
+								[1] = "BuyBlackLeg"
+							}
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+						end
+						if game.Players.LocalPlayer.Character:FindFirstChild("Electro") and game.Players.LocalPlayer.Character:FindFirstChild("Electro").Level.Value >= 300 then
+							local args = {
+								[1] = "BuyBlackLeg"
+							}
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+						end
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value >= 300 then
+							local args = {
+								[1] = "BuyFishmanKarate"
+							}
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+						end
+						if game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Character:FindFirstChild("Black Leg").Level.Value >= 300 then
+							local args = {
+								[1] = "BuyFishmanKarate"
+							}
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+						end
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate").Level.Value >= 300  then
+							local args = {
+								[1] = "BlackbeardReward",
+								[2] = "DragonClaw",
+								[3] = "2"
+							}
+							HaveDragonClaw = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+							if getgenv().Setting['Auto Farm'] and game.Players.LocalPlayer.Data.Fragments.Value <= 1500 and HaveDragonClaw == 0 then
+								if game.Players.LocalPlayer.Data.Level.Value > 1100 then
+									
+								end
+							else
+								
+								local args = {
+									[1] = "BlackbeardReward",
+									[2] = "DragonClaw",
+									[3] = "2"
+								}
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+							end
+						end
+						if game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate").Level.Value >= 300  then
+							local args = {
+								[1] = "BlackbeardReward",
+								[2] = "DragonClaw",
+								[3] = "2"
+							}
+							HaveDragonClaw = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+							if getgenv().Setting['Auto Farm'] and game.Players.LocalPlayer.Data.Fragments.Value <= 1500 and HaveDragonClaw == 0 then
+								if game.Players.LocalPlayer.Data.Level.Value > 1100 then
+									
+								end
+							else
+								
+								local args = {
+									[1] = "BlackbeardReward",
+									[2] = "DragonClaw",
+									[3] = "2"
+								}
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+								
+							end
+						end
+
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value >= 300 then
+							
+							local args = {
+								[1] = "BuySuperhuman"
+							}
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+						end
+						if game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw").Level.Value >= 300 then
+							
+							local args = {
+								[1] = "BuySuperhuman"
+							}
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+						end 
+					end
+				elseif not HasKarate then
+					if game.Players.LocalPlayer:FindFirstChild("WeaponAssetCache") then
+						if not game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate") and not game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate") then
+							if not game.Players.LocalPlayer.Backpack:FindFirstChild("Sharkman Karate") and not game.Players.LocalPlayer.Character:FindFirstChild("Sharkman Karate") then
+								local args = {
+									[1] = "BuyFishmanKarate"
+								}
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+							end
+						end
+
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate").Level.Value >= 400 then
+							if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true) == "I lost my house keys, could you help me find them? Thanks." and not game.Players.LocalPlayer.Character:FindFirstChild("Water Key") and not game.Players.LocalPlayer.Backpack:FindFirstChild("Water Key") then
+								if World2 then
+									KillSharkMan = true
+									
+								else
+									KillSharkMan = false
+									
+								end
+							elseif tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)) == 1 then
+								KillSharkMan = false
+								
+								local args = {
+									[1] = "BuySharkmanKarate"
+								}
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+							elseif game.Players.LocalPlayer.Character:FindFirstChild("Water Key") or game.Players.LocalPlayer.Backpack:FindFirstChild("Water Key") then
+								KillSharkMan = false
+								
+								local args = {
+									[1] = "BuySharkmanKarate"
+								}
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+							end
+						end
+
+						if game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate").Level.Value >= 400 then
+							if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true) == "I lost my house keys, could you help me find them? Thanks." and not game.Players.LocalPlayer.Character:FindFirstChild("Water Key") and not game.Players.LocalPlayer.Backpack:FindFirstChild("Water Key") then
+								if World2 then
+									KillSharkMan = true
+									
+								else
+									
+									KillSharkMan = false
+								end
+							elseif tonumber(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)) == 1 then
+								KillSharkMan = false
+								
+								local args = {
+									[1] = "BuySharkmanKarate"
+								}
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+							elseif game.Players.LocalPlayer.Character:FindFirstChild("Water Key") or game.Players.LocalPlayer.Backpack:FindFirstChild("Water Key") then
+								KillSharkMan = false
+								
+								local args = {
+									[1] = "BuySharkmanKarate"
+								}
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+							end
+						end
+						
+					end
+				elseif not HasDeathStep then
+					if game.Players.LocalPlayer:FindFirstChild("WeaponAssetCache") then
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value >= 400 then
+							local args = {
+								[1] = "BuyDeathStep"
+							}
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+
+						end  
+						if game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Character:FindFirstChild("Black Leg").Level.Value >= 400 then
+							local args = {
+								[1] = "BuyDeathStep"
+							}
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+
+						end  
+						
+					end
+				elseif not HasTalon then
+					if game.Players.LocalPlayer:FindFirstChild("WeaponAssetCache") then
+
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value >= 400 and game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 then
+							if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon", true) == 3 then
+								local string_1 = "Bones";
+								local string_2 = "Buy";
+								local number_1 = 1;
+								local number_2 = 1;
+								local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+								Target:InvokeServer(string_1, string_2, number_1, number_2);
+
+								local string_1 = "BuyDragonTalon";
+								local bool_1 = true;
+								local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+								Target:InvokeServer(string_1, bool_1);
+							elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon", true) == 1 then
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+							else
+								local string_1 = "Bones";
+								local string_2 = "Buy";
+								local number_1 = 1;
+								local number_2 = 1;
+								local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+								Target:InvokeServer(string_1, string_2, number_1, number_2);
+							end 
+						end
+
+						if game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw").Level.Value >= 400 and game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 then
+							if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon", true) == 3 then
+								local string_1 = "Bones";
+								local string_2 = "Buy";
+								local number_1 = 1;
+								local number_2 = 1;
+								local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+								Target:InvokeServer(string_1, string_2, number_1, number_2);
+
+								local string_1 = "BuyDragonTalon";
+								local bool_1 = true;
+								local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+								Target:InvokeServer(string_1, bool_1);
+							elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon", true) == 1 then
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+							else
+								local string_1 = "Bones";
+								local string_2 = "Buy";
+								local number_1 = 1;
+								local number_2 = 1;
+								local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+								Target:InvokeServer(string_1, string_2, number_1, number_2);
+							end 
+						end
+					end
+				elseif not HasElectricClaw then
+					if game.Players.LocalPlayer:FindFirstChild("WeaponAssetCache") then
+						
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value >= 400 then
+							local v175 = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw", true);
+							if v175 == 4 then
+								local v176 = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw", "Start");
+								if v176 == nil then
+									game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12548, 337, -7481)
+								end
+							else
+								local string_1 = "BuyElectricClaw";
+								local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+								Target:InvokeServer(string_1);
+							end
+						end
+
+						if game.Players.LocalPlayer.Character:FindFirstChild("Electro") and game.Players.LocalPlayer.Character:FindFirstChild("Electro").Level.Value >= 400 then
+							local v175 = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw", true);
+							if v175 == 4 then
+								local v176 = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw", "Start");
+								if v176 == nil then
+									game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12548, 337, -7481)
+								end
+							else
+								local string_1 = "BuyElectricClaw";
+								local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+								Target:InvokeServer(string_1);
+							end
+						end
+					end
+				end
+			end
+		end)
+	end
+end)
+
+
 
 Vertion(11)
 
