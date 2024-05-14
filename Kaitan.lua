@@ -590,7 +590,7 @@ local function GetIsLand(...)
 end
 
 function LoopTP(pos)
-	if game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health <= 0
+	if game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health <= 0 then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
 		repeat wait() until game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame == pos
 	end
@@ -11420,7 +11420,7 @@ spawn(function()
 end)
 
 
-Vertion(30)
+Vertion(31)
 
 
 return library, library_flags, library.subs
