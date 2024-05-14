@@ -652,7 +652,7 @@ function TP(...)
 							repeat wait()
 							    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = RealTarget
 							until game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame == RealTarget
-							game.Players.LocalPlayer.Character.Head:Destroy()
+							game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(15)
 						else
 							LoopTP(RealTarget)
 						end
@@ -11418,7 +11418,7 @@ spawn(function()
 end)
 
 
-Vertion(28)
+Vertion(29)
 
 
 return library, library_flags, library.subs
