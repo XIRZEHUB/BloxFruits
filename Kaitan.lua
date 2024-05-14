@@ -590,8 +590,10 @@ local function GetIsLand(...)
 end
 
 function LoopTP(pos)
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
-	repeat wait() until game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame == pos
+	if game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health <= 0
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+		repeat wait() until game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame == pos
+	end
 end
 
 function CheckFruitForBypass()
@@ -11418,7 +11420,7 @@ spawn(function()
 end)
 
 
-Vertion(29)
+Vertion(30)
 
 
 return library, library_flags, library.subs
