@@ -1106,7 +1106,7 @@ end)
 
 LPH_JIT_MAX(function()
 	task.spawn(function()
-		while task.wait(1) do
+		while task.wait(.25) do
 			pcall(function()
 				if StartBring then
 					for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
