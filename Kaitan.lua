@@ -10822,7 +10822,7 @@ LPH_JIT_MAX(function()
 															FarmTP = TP(v.HumanoidRootPart.CFrame * CFrame.new(0,0,0),"Bypass")
 															if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
 																if FarmTP then FarmTP:Stop() end
-																if game:GetService("Players").LocalPlayer.PlayerGui.Main.SafeZone.Visible == true and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 50 then
+																if game:GetService("Players").LocalPlayer.PlayerGui.Main.SafeZone.Visible == true then
 																	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 																end
 																repeat wait()
@@ -10850,7 +10850,7 @@ LPH_JIT_MAX(function()
 														FarmTP = TP(v.HumanoidRootPart.CFrame * CFrame.new(0,0,0),"Bypass")
 														if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
 															if FarmTP then FarmTP:Stop() end
-															if game:GetService("Players").LocalPlayer.PlayerGui.Main.SafeZone.Visible == true and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 50 then
+															if game:GetService("Players").LocalPlayer.PlayerGui.Main.SafeZone.Visible == true then
 																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 															end
 															repeat wait()
@@ -11420,7 +11420,7 @@ spawn(function()
 end)
 
 
-Vertion(25)
+Vertion(26)
 
 
 return library, library_flags, library.subs
